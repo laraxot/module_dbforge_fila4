@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\DbForge\Console\Commands;
 
-use Modules\Xot\Actions\Filament\GenerateFormByFileAction;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -54,8 +53,8 @@ class GenerateFormCommand extends Command
         }
         $filament_resources_path = $module_path.'Filament/Resources';
 
-        $this->info($module_name); // = Progressioni
-        $this->info($module_path); // = /var/www/html/ptvx/laravel/Modules/Progressioni/
+        $this->info($module_name);
+        $this->info($module_path);
         $this->info($filament_resources_path);
 
         $files = File::files($filament_resources_path);
