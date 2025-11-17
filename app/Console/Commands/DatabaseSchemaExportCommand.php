@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Schema as SchemaFacade;
 use Illuminate\Support\Str;
 use Safe\Exceptions\FilesystemException;
 use Safe\Exceptions\JsonException;
-
 use function Safe\file_put_contents;
 use function Safe\json_encode;
 use function Safe\mkdir;
@@ -97,6 +96,7 @@ class DatabaseSchemaExportCommand extends Command
      * Ottiene le informazioni delle colonne della tabella.
      *
      * @param  string  $table  Nome della tabella
+     *
      * @return array<string, array<string, mixed>>
      */
     protected function getTableColumns(string $table): array
@@ -125,6 +125,7 @@ class DatabaseSchemaExportCommand extends Command
      * Ottiene le informazioni degli indici della tabella.
      *
      * @param  string  $table  Nome della tabella
+     *
      * @return array<string, array<string, mixed>>
      */
     protected function getTableIndexes(string $table): array
@@ -148,7 +149,7 @@ class DatabaseSchemaExportCommand extends Command
             if (! isset($indexes[$indexName])) {
                 $indexes[$indexName] = [
                     'columns' => [],
-                    'unique' => ($indexData['Non_unique'] ?? 1) == 0,
+                    'unique' => ($indexData['Non_unique'] ?? 1) === 0,
                     'primary' => $indexName === 'PRIMARY',
                 ];
             }
@@ -166,6 +167,7 @@ class DatabaseSchemaExportCommand extends Command
      * Ottiene le informazioni delle chiavi esterne della tabella.
      *
      * @param  string  $table  Nome della tabella
+     *
      * @return array<string, array<string, mixed>>
      */
     protected function getTableForeignKeys(string $table): array
@@ -226,6 +228,7 @@ class DatabaseSchemaExportCommand extends Command
      *
      * @param  string  $table  Nome della tabella
      * @param  string|null  $module  Nome del modulo
+     *
      * @return string Percorso completo del file
      *
      * @throws FilesystemException

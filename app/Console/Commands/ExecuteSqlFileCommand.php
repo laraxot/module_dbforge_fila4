@@ -7,9 +7,8 @@ namespace Modules\DbForge\Console\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Webmozart\Assert\Assert;
-
 use function Safe\file_get_contents;
+use Webmozart\Assert\Assert;
 
 class ExecuteSqlFileCommand extends Command
 {
@@ -29,10 +28,8 @@ class ExecuteSqlFileCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         // Chiedi il percorso del file .sql
         $filePath = $this->ask('Inserisci il percorso del file .sql');

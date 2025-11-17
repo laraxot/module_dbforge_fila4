@@ -59,9 +59,10 @@ class SearchStringInDatabaseCommand extends Command
 
     /**
      * @param  Collection<int, stdClass>  $results
+     *
      * @return array<int, array{string, string}>
      */
-    private function formatResults($results): array
+    private function formatResults(Collection $results): array
     {
         $formatted = [];
         $searchArg = $this->argument('search');

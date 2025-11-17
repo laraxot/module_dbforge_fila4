@@ -44,14 +44,12 @@ class AdminPanelProvider extends XotBasePanelProvider
     public function panel(Panel $panel): Panel
     {
         // Chiama il metodo parent per la configurazione base
-        $panel = parent::panel($panel);
+        return parent::panel($panel);
 
         // Configurazioni specifiche per DbForge possono essere aggiunte qui
         // Ad esempio:
         // - Plugin specifici per database management
         // - Widget personalizzati per monitoring database
         // - Configurazioni di sicurezza aggiuntive
-
-        return $panel;
     }
 }
