@@ -59,7 +59,6 @@ class SearchStringInDatabaseCommand extends Command
 
     /**
      * @param  Collection<int, stdClass>  $results
-     *
      * @return array<int, array{string, string}>
      */
     private function formatResults(Collection $results): array
