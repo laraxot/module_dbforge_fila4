@@ -38,8 +38,9 @@ class SearchTextInDbCommand extends Command
             // Get table name with proper type checking
             $tableName = null;
             if (is_object($table)) {
-                if (property_exists($table, $tableProp) && is_string($table->$tableProp)) {
-                    $tableName = $table->$tableProp;
+                $tableData = (array) $table;
+                if (array_key_exists($tableProp, $tableData) && is_string($tableData[$tableProp])) {
+                    $tableName = $tableData[$tableProp];
                 }
             } elseif (is_string($table)) {
                 $tableName = $table;
