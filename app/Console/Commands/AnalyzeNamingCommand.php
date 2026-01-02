@@ -8,7 +8,6 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -270,7 +269,7 @@ class AnalyzeNamingCommand extends Command
     }
 
     /**
-     * @param array<int, object> $tables
+     * @param  array<int, object>  $tables
      * @return list<string>
      */
     private function collectModuleTables(array $tables, string $tableColumn, ?string $module): array
@@ -331,7 +330,7 @@ class AnalyzeNamingCommand extends Command
     }
 
     /**
-     * @param array{incorrect: list<string>, correct: list<string>, message: string} $rule
+     * @param  array{incorrect: list<string>, correct: list<string>, message: string}  $rule
      * @return list<array{column: string, issue: string, correct: string}>
      */
     private function evaluateColumnAgainstRule(string $column, array $rule): array
@@ -431,7 +430,7 @@ class AnalyzeNamingCommand extends Command
     }
 
     /**
-     * @param list<string> $patterns
+     * @param  list<string>  $patterns
      */
     private function matchesAnyPattern(string $content, array $patterns): bool
     {
@@ -517,7 +516,7 @@ class AnalyzeNamingCommand extends Command
     }
 
     /**
-     * @param array{incorrect: list<string>, correct: list<string>, message: string} $rules
+     * @param  array{incorrect: list<string>, correct: list<string>, message: string}  $rules
      */
     private function getCorrectField(string $incorrectField, array $rules): string
     {
@@ -548,7 +547,7 @@ class AnalyzeNamingCommand extends Command
     }
 
     /**
-     * @param array{incorrect: list<string>, correct: list<string>, message: string} $rules
+     * @param  array{incorrect: list<string>, correct: list<string>, message: string}  $rules
      */
     private function getCorrectFieldPattern(string $incorrectField, array $rules): string
     {

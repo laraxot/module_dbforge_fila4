@@ -31,6 +31,7 @@ class GetSchemaManagerByModelClassAction
             /** @phpstan-ignore deprecated.method */
             $schemaManager = $connection->getDoctrineSchemaManager();
             Assert::isInstanceOf($schemaManager, AbstractSchemaManager::class);
+
             return $schemaManager;
         }
 
