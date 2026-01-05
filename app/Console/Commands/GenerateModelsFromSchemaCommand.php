@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Safe\Exceptions\DatetimeException;
 use Safe\Exceptions\JsonException;
 use Safe\Exceptions\PcreException;
+use Webmozart\Assert\Assert;
 
 use function Safe\date;
 use function Safe\json_decode;
@@ -233,8 +234,8 @@ class GenerateModelsFromSchemaCommand extends Command
                 $relatedModel = $this->getModelName((string) $relatedTable);
                 $methodName = Str::camel((string) $relatedTable);
 
-                if (preg_match('/^(.+)_id$/', $fk['column'], $matches)) {
-                    $methodName = Str::camel($matches[1]);
+                if (preg_match('/^(.+)_id$/', $fk['column'], $matches) && isset($matches[1])) {
+                    $methodName = Str::camel(is_string($matches[1]) ? $matches[1] : '');
                 }
 
                 $relations[$methodName] = [
@@ -266,17 +267,21 @@ class GenerateModelsFromSchemaCommand extends Command
         array $casts,
         array $relations
     ): string {
-        $fillableStr = preg_replace(
-            '/^/m',
-            '        ',
-            var_export($fillable, true)
-        );
+        // var_export con return=true ritorna sempre string
+        /** @var string $fillableExport */
+        $fillableExport = var_export($fillable, true);
+        $fillableStrRaw = preg_replace('/^/m', '        ', $fillableExport);
+        Assert::string($fillableStrRaw, 'Failed to format fillable array');
+        /** @var string $fillableStr */
+        $fillableStr = $fillableStrRaw;
 
-        $castsStr = preg_replace(
-            '/^/m',
-            '        ',
-            var_export($casts, true)
-        );
+        // var_export con return=true ritorna sempre string
+        /** @var string $castsExport */
+        $castsExport = var_export($casts, true);
+        $castsStrRaw = preg_replace('/^/m', '        ', $castsExport);
+        Assert::string($castsStrRaw, 'Failed to format casts array');
+        /** @var string $castsStr */
+        $castsStr = $castsStrRaw;
 
         $relationsStr = '';
         foreach ($relations as $methodName => $relation) {
