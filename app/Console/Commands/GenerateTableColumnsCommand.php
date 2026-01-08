@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\DbForge\Console\Commands;
 
+use Modules\Xot\Actions\Filament\GenerateTableColumnsByFileAction;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;

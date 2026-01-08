@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\DbForge\Actions\Model;
 
+use RuntimeException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use RuntimeException;

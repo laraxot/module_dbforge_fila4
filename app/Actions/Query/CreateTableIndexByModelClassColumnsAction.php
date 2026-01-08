@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\DbForge\Actions\Query;
 
+use InvalidArgumentException;
+use RuntimeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
