@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\DbForge\Models;
 
-use Illuminate\Support\Carbon;
-
 /**
  * DbForgeMigration model.
  *
@@ -16,11 +14,11 @@ use Illuminate\Support\Carbon;
  * @property string $status
  * @property string|null $batch
  * @property int|null $created_by
- * @property Carbon|null $executed_at
+ * @property \Illuminate\Support\Carbon|null $executed_at
  * @property array|null $metadata
  * @property array|null $settings
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  */
 class DbForgeMigration extends BaseModel
 {
@@ -49,7 +47,7 @@ class DbForgeMigration extends BaseModel
     ];
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */

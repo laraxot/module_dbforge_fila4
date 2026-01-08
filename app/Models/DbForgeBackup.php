@@ -4,24 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\DbForge\Models;
 
-use Illuminate\Support\Carbon;
-
 /**
  * DbForgeBackup model.
  *
- * @property int $id
- * @property string $backup_name
- * @property string $backup_path
- * @property int $backup_size
- * @property string $backup_type
- * @property string $status
- * @property int $retention_days
- * @property int|null $created_by
- * @property Carbon|null $completed_at
- * @property array|null $metadata
- * @property array|null $settings
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int                             $id
+ * @property string                          $backup_name
+ * @property string                          $backup_path
+ * @property int                             $backup_size
+ * @property string                          $backup_type
+ * @property string                          $status
+ * @property int                             $retention_days
+ * @property int|null                        $created_by
+ * @property \Illuminate\Support\Carbon|null $completed_at
+ * @property array|null                      $metadata
+ * @property array|null                      $settings
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  */
 class DbForgeBackup extends BaseModel
 {
