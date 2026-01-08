@@ -51,18 +51,21 @@ class DbForgeBackup extends BaseModel
     ];
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'backup_size' => 'integer',
-        'retention_days' => 'integer',
-        'created_by' => 'integer',
-        'completed_at' => 'datetime',
-        'metadata' => 'array',
-        'settings' => 'array',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'backup_size' => 'integer',
+            'retention_days' => 'integer',
+            'created_by' => 'integer',
+            'completed_at' => 'datetime',
+            'metadata' => 'array',
+            'settings' => 'array',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
 }

@@ -51,14 +51,17 @@ class DbForgeMigration extends BaseModel
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'created_by' => 'integer',
-        'executed_at' => 'datetime',
-        'metadata' => 'array',
-        'settings' => 'array',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'created_by' => 'integer',
+            'executed_at' => 'datetime',
+            'metadata' => 'array',
+            'settings' => 'array',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
 }
