@@ -49,10 +49,10 @@ class DbForgeMigrationFactory extends Factory
             'created_by' => $this->faker->optional()->numberBetween(1, 100),
             'executed_at' => $this->faker->optional()->dateTimeBetween('-1 year', 'now'),
             'metadata' => [
-                'module' => $this->faker->randomElement(['User', 'Cms', 'Quaeris', 'Xot', 'DbForge']),
+                'module' => $this->faker->randomElement(['User', 'Cms',  'Xot', 'DbForge']),
                 'description' => $this->faker->sentence(),
                 'version' => $this->faker->semver(),
-                'dependencies' => $this->faker->optional()->randomElements(['User', 'Cms', 'Quaeris', 'Xot'], $this->faker->numberBetween(0, 3)),
+                'dependencies' => $this->faker->optional()->randomElements(['User', 'Cms',  'Xot'], $this->faker->numberBetween(0, 3)),
                 'checksum' => $this->faker->sha1(),
             ],
             'settings' => [
@@ -261,7 +261,7 @@ class DbForgeMigrationFactory extends Factory
     /**
      * Create a migration with specific settings.
      *
-     * @param  array<string, mixed>  $settings
+     * @param array<string, mixed> $settings
      */
     public function withSettings(array $settings): static
     {
@@ -280,7 +280,7 @@ class DbForgeMigrationFactory extends Factory
     /**
      * Create a migration with specific metadata.
      *
-     * @param  array<string, mixed>  $metadata
+     * @param array<string, mixed> $metadata
      */
     public function withMetadata(array $metadata): static
     {
