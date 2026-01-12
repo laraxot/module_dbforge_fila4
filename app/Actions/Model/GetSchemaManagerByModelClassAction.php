@@ -7,7 +7,6 @@ namespace Modules\DbForge\Actions\Model;
 use RuntimeException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use RuntimeException;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
