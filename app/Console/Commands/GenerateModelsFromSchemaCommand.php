@@ -234,8 +234,8 @@ class GenerateModelsFromSchemaCommand extends Command
                 $relatedModel = $this->getModelName((string) $relatedTable);
                 $methodName = Str::camel((string) $relatedTable);
 
-                if (preg_match('/^(.+)_id$/', $fk['column'], $matches) && isset($matches[1])) {
-                    $methodName = Str::camel(is_string($matches[1]) ? $matches[1] : '');
+                if (preg_match('/^(.+)_id$/', $fk['column'], $matches) === 1) {
+                    $methodName = Str::camel($matches[1]);
                 }
 
                 $relations[$methodName] = [
