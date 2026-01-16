@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Modules\DbForge\Tests\TestCase;
 
 /*
@@ -18,7 +18,7 @@ use Modules\DbForge\Tests\TestCase;
 */
 
 pest()->extend(TestCase::class)
-    ->use(RefreshDatabase::class)
+    ->use(DatabaseTransactions::class)
     ->in('Feature', 'Unit');
 
 /*
